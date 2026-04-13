@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SomnaX – Privacy Policy</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1a1a1a;
+      background: #fff;
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 40px 24px 80px;
+    }
+    h1 { font-size: 28px; font-weight: 700; margin-bottom: 6px; }
+    h2 { font-size: 20px; font-weight: 700; margin-top: 40px; margin-bottom: 10px; color: #111; }
+    h3 { font-size: 16px; font-weight: 600; margin-top: 22px; margin-bottom: 6px; color: #333; }
+    p  { margin-bottom: 14px; }
+    ul { margin: 0 0 14px 22px; }
+    li { margin-bottom: 6px; }
+    .meta { font-size: 13px; color: #666; margin-bottom: 32px; }
+    .box {
+      background: #f5f5f7;
+      border-left: 4px solid #6c6ce0;
+      border-radius: 6px;
+      padding: 16px 20px;
+      margin: 24px 0;
+      font-size: 15px;
+    }
+    a { color: #6c6ce0; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    hr { border: none; border-top: 1px solid #e5e5e5; margin: 40px 0; }
+  </style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p class="meta">App: <strong>SomnaX</strong> &nbsp;|&nbsp; Last updated: <strong>April 13, 2025</strong></p>
+
+<div class="box">
+  <strong>Summary:</strong> SomnaX is a breathing and mental-wellness app. We collect minimal personal data, store most of it on your device, and never sell your information. This policy explains everything in detail.
+</div>
+
+<h2>1. Who We Are</h2>
+<p>SomnaX ("we", "us", "our") is the developer and publisher of the SomnaX mobile application available on the Apple App Store. For privacy-related questions, contact us at: <a href="mailto:privacy@somnax.app">privacy@somnax.app</a></p>
+
+<h2>2. What Data We Collect and Why</h2>
+
+<h3>2.1 Account Data (collected when you sign in)</h3>
+<p>SomnaX uses <strong>Sign in with Apple</strong> for authentication. When you sign in, we receive and store:</p>
+<ul>
+  <li><strong>Apple User ID</strong> – a unique, anonymized identifier provided by Apple. This is used to link your account on our backend and to associate your profile preferences.</li>
+  <li><strong>Full name</strong> (optional) – only provided by Apple the first time you sign in. Used to personalize your in-app experience and sent to our backend to display in the app.</li>
+  <li><strong>Email address</strong> – requested from Apple as part of the standard Sign in with Apple flow, but <em>not currently stored or processed</em> by SomnaX servers.</li>
+</ul>
+
+<h3>2.2 Profile &amp; Wellness Preferences (collected during onboarding and in Profile settings)</h3>
+<p>To personalize your breathing sessions and the AI companion, we optionally collect:</p>
+<ul>
+  <li>Age range (under 18 / 18–30 / 31–45 / 46+)</li>
+  <li>Gender (woman / man / non-binary / prefer not to say)</li>
+  <li>Primary wellness need (calm mind / fall asleep / both)</li>
+  <li>Type of stress experienced (racing thoughts / anxiety / overthinking / can't sleep)</li>
+  <li>Stress frequency (rarely / sometimes / often)</li>
+  <li>Sleep difficulty level (low / medium / high)</li>
+  <li>Preferred session length (short / medium / long)</li>
+  <li>Preferred relaxation method (sounds / silence / guided)</li>
+  <li>Preferred bedtime</li>
+</ul>
+<p>These preferences are stored on your device (via <code>UserDefaults</code>) and also synced to our backend database so that they can be linked to your account. They are used exclusively to personalize your experience and are never used for advertising targeting.</p>
+
+<h3>2.3 Session Activity (stored only on your device)</h3>
+<p>SomnaX tracks your usage locally to provide streak counts, insights, and adaptive recommendations:</p>
+<ul>
+  <li>Number of sessions started and completed</li>
+  <li>Session durations and timestamps</li>
+  <li>Breathing mode used per session</li>
+  <li>Early-exit count (used to adapt session difficulty)</li>
+  <li>Current and best streaks</li>
+  <li>Program progress</li>
+</ul>
+<p>This data is stored <strong>only on your device</strong> and is never transmitted to our servers.</p>
+
+<h3>2.4 AI Chat History (stored only on your device, encrypted)</h3>
+<p>Conversations you have with the SomnaX AI companion are stored locally on your device. Chat history is encrypted at rest using <strong>AES-256-GCM</strong> encryption, with the encryption key stored in your device's Keychain. A maximum of 20 conversation threads are retained; older threads are deleted automatically.</p>
+<p>When you send a message, the following data is transmitted to our AI processing endpoint (a Supabase Edge Function) to generate a response:</p>
+<ul>
+  <li>The text of your current message</li>
+  <li>Up to 6 recent messages from the current conversation thread (for context)</li>
+  <li>Your selected app language</li>
+  <li>A brief profile summary (name, age range, gender, sleep difficulty, stress frequency, session length preference) — only if you have set these in your profile</li>
+  <li>An in-memory emotion score and trend derived from the current conversation (not persisted on our servers)</li>
+  <li>Time of day (day / night) to tailor the response tone</li>
+</ul>
+<p>Chat messages are processed to generate a response and are <strong>not stored on our servers</strong> beyond what is needed to complete the request.</p>
+
+<h3>2.5 Voice Input (microphone &amp; speech recognition)</h3>
+<p>If you use the microphone button in the AI chat, the app requests permission to access your device microphone and Apple's on-device speech recognition. Voice input is converted to text using Apple's Speech framework (<code>SFSpeechRecognizer</code>). The resulting text is handled in the same way as typed messages (see Section 2.4). We do not record or store raw audio.</p>
+
+<h3>2.6 Push Notifications</h3>
+<p>With your permission, we send local push notifications to:</p>
+<ul>
+  <li>Remind you to complete a breathing session (morning, evening, and at your configured bedtime)</li>
+  <li>Suggest starting a breathing session when relevant activity patterns are detected (e.g., after a workout)</li>
+  <li>Suggest a calming exercise when a possible panic-like state is detected</li>
+</ul>
+<p>Notification data is processed entirely on your device and does not involve transmitting any information to our servers.</p>
+
+<h3>2.7 Advertising Data (free users only)</h3>
+<p>Free-tier users may see interstitial advertisements served by <strong>Google AdMob</strong>. Google AdMob may collect device identifiers, IP address, and interaction data to serve and measure ads. This data is governed by <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>. To opt out of personalized ads, you can use the settings in your device's Privacy &amp; Security section (Limit Ad Tracking / Allow Apps to Request to Track). <strong>Premium subscribers do not see ads.</strong></p>
+
+<h2>3. How We Use Your Data</h2>
+<ul>
+  <li><strong>Provide core app functionality</strong> – breathing sessions, AI companion, session tracking, reminders.</li>
+  <li><strong>Personalize your experience</strong> – adapt breathing patterns, session lengths, and AI responses to your profile.</li>
+  <li><strong>Manage your account</strong> – link your preferences to your Apple ID so they persist across reinstalls (if you sign in again).</li>
+  <li><strong>Improve the app</strong> – aggregate, anonymized data may be used to improve our AI model prompts and default breathing patterns. Individual user data is never used for this purpose without anonymization.</li>
+  <li><strong>Deliver advertisements</strong> (free users only) – via Google AdMob as described in Section 2.7.</li>
+</ul>
+<p>We do <strong>not</strong> sell your data. We do <strong>not</strong> use your wellness or chat data for advertising.</p>
+
+<h2>4. Data Storage and Retention</h2>
+
+<h3>4.1 On-Device Storage</h3>
+<p>Most data (session history, chat history, preferences) is stored locally on your device and is removed when you delete the app.</p>
+
+<h3>4.2 Backend Storage (Supabase)</h3>
+<p>Your Apple User ID, optional name, optional age range, optional gender, and last-seen timestamp are stored in our Supabase database. This data is retained for as long as your account exists. You can delete your account and all associated backend data at any time from the Profile screen in the app.</p>
+
+<h3>4.3 Data Retention After Deletion</h3>
+<p>When you delete your account via the app, we send a deletion request to our backend, which permanently removes your user record and associated profile data. Anonymized, aggregated analytics data (if any) may be retained.</p>
+
+<h2>5. Data Sharing and Third-Party Services</h2>
+<p>We use the following third-party services, each of which has its own privacy policy:</p>
+<ul>
+  <li><strong>Supabase</strong> (<a href="https://supabase.com/privacy" target="_blank">privacy policy</a>) – Backend-as-a-service used for user account storage and AI proxy edge functions. Data is stored on Supabase-managed infrastructure.</li>
+  <li><strong>Google AdMob</strong> (<a href="https://policies.google.com/privacy" target="_blank">privacy policy</a>) – Advertising SDK used for free-tier users.</li>
+  <li><strong>Apple Sign in with Apple</strong> – Authentication. Apple's handling of your data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a>.</li>
+  <li><strong>Apple Speech Framework</strong> – On-device speech-to-text used for voice input. Apple's handling is governed by Apple's Privacy Policy.</li>
+</ul>
+<p>We do not share your personal data with any other third parties.</p>
+
+<h2>6. Children's Privacy</h2>
+<p>SomnaX is a general wellness application. The app includes an age range option of "under 18" to allow young users to receive appropriately calibrated breathing sessions. However, the app <strong>does not knowingly collect personal information from children under the age of 13</strong> beyond what is required for the Sign in with Apple flow. Apple's Sign in with Apple does not provide an email or name for users who are under 13 in jurisdictions where COPPA applies.</p>
+<p>If you are a parent or guardian and believe your child under 13 has provided personal information through the app, please contact us at <a href="mailto:privacy@somnax.app">privacy@somnax.app</a> and we will promptly delete that information.</p>
+<p>Users under 18 should use the app with parental awareness.</p>
+
+<h2>7. Health and Mental Wellness Disclaimer</h2>
+<p>SomnaX provides breathing exercises and an AI wellness companion as general well-being tools. <strong>The app is not a medical device, is not a substitute for professional medical or mental health care, and is not intended to diagnose, treat, cure, or prevent any condition.</strong> Wellness data you share (e.g., anxiety levels, sleep difficulty) is used solely to personalize in-app content and is not shared with healthcare providers or insurers.</p>
+
+<h2>8. Your Rights</h2>
+<p>Depending on your location, you may have the following rights:</p>
+<ul>
+  <li><strong>Access</strong> – You can view your profile data within the app.</li>
+  <li><strong>Correction</strong> – You can update your name, age range, gender, and preferences in the app's Profile screen at any time.</li>
+  <li><strong>Deletion</strong> – You can delete your account and all associated backend data from the Profile screen ("Delete Account" option). Deleting the app removes all locally stored data.</li>
+  <li><strong>Portability</strong> – Contact us to request a copy of your stored personal data.</li>
+  <li><strong>Withdrawal of consent</strong> – You can revoke notification permissions, microphone access, and speech recognition permissions at any time through iOS Settings.</li>
+</ul>
+<p><strong>EU/EEA/UK users (GDPR):</strong> You have additional rights including the right to object to processing and the right to lodge a complaint with your supervisory authority. Our legal basis for processing is your consent and our legitimate interest in providing the service.</p>
+<p><strong>California users (CCPA):</strong> We do not sell personal information. You have the right to know what personal information we collect and the right to deletion as described above.</p>
+
+<h2>9. Data Security</h2>
+<p>We implement appropriate technical measures to protect your data:</p>
+<ul>
+  <li>Chat history is encrypted at rest on your device using AES-256-GCM with keys stored in the iOS Keychain.</li>
+  <li>All communication between the app and our backend occurs over HTTPS (TLS).</li>
+  <li>Access to our Supabase database is restricted to authenticated requests using API keys.</li>
+</ul>
+<p>No method of electronic storage or transmission is 100% secure. In the unlikely event of a data breach involving your personal information, we will notify you as required by applicable law.</p>
+
+<h2>10. International Data Transfers</h2>
+<p>Our backend infrastructure is hosted on Supabase servers, which may be located in the United States or other countries. By using SomnaX, you consent to the transfer of your data to these locations. We ensure that appropriate safeguards are in place in accordance with applicable data protection laws.</p>
+
+<h2>11. Changes to This Policy</h2>
+<p>We may update this Privacy Policy from time to time. When we do, we will update the "Last updated" date at the top of this page and, where required by law, notify you through the app or by email. Continued use of SomnaX after changes take effect constitutes acceptance of the revised policy.</p>
+
+<h2>12. Contact Us</h2>
+<p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact us:</p>
+<ul>
+  <li>Email: <a href="mailto:privacy@somnax.app">privacy@somnax.app</a></li>
+</ul>
+
+<hr>
+<p style="font-size:13px; color:#888;">© 2025 SomnaX. All rights reserved.</p>
+
+</body>
+</html>
