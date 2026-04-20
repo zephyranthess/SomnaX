@@ -87,7 +87,7 @@
 
 <h3>2.4 AI Chat History (stored only on your device, encrypted)</h3>
 <p>Conversations you have with the SomnaX AI companion are stored locally on your device. Chat history is encrypted at rest using <strong>AES-256-GCM</strong> encryption, with the encryption key stored in your device's Keychain. A maximum of 20 conversation threads are retained; older threads are deleted automatically.</p>
-<p>When you send a message, the following data is transmitted to our AI processing endpoint (a Supabase Edge Function) to generate a response:</p>
+<p>When you send a message, the following data is transmitted via our Supabase Edge Function to <strong>OpenAI</strong>, the third-party AI service that generates the reply. The request is sent only after you grant in-app consent on the first use of the chat:</p>
 <ul>
   <li>The text of your current message</li>
   <li>Up to 6 recent messages from the current conversation thread (for context)</li>
@@ -136,6 +136,7 @@
 <p>We use the following third-party services, each of which has its own privacy policy:</p>
 <ul>
   <li><strong>Supabase</strong> (<a href="https://supabase.com/privacy" target="_blank">privacy policy</a>) – Backend-as-a-service used for user account storage and AI proxy edge functions. Data is stored on Supabase-managed infrastructure.</li>
+  <li><strong>OpenAI</strong> (<a href="https://openai.com/policies/privacy-policy" target="_blank">privacy policy</a>) – Third-party AI service used to generate SomnaX Companion chat responses. Data sent per request is described in Section 2.4, and is only transmitted after you grant in-app consent. OpenAI provides privacy protections substantially equivalent to those described in this policy.</li>
   <li><strong>Google AdMob</strong> (<a href="https://policies.google.com/privacy" target="_blank">privacy policy</a>) – Advertising SDK used for free-tier users.</li>
   <li><strong>Apple Sign in with Apple</strong> – Authentication. Apple's handling of your data is governed by <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple's Privacy Policy</a>.</li>
   <li><strong>Apple Speech Framework</strong> – On-device speech-to-text used for voice input. Apple's handling is governed by Apple's Privacy Policy.</li>
